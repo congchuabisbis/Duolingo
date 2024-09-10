@@ -1,0 +1,75 @@
+﻿body {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Use a playful font */
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333; /* Dark text color */
+}
+
+.questions-container{
+    margin-left:auto;
+    margin-right:auto;
+}
+.question {
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.question-info {
+    display: flex;
+    align-items: center;
+    margin-top:200px;
+}
+
+.question-number {
+    background-color: #78C800;
+    padding: 10px;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size:20px;
+}
+
+.question-text-title {
+    color: #444;
+    font-size: 32px;
+}
+
+.answers {
+    margin-top: 20px;
+    max-width: 1000px; /* Thay đổi giá trị theo ý muốn */
+    background-color:antiquewhite;
+    font-size:22px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.answer-option {
+    margin-bottom: 10px;
+}
+
+.navigation-buttons {
+    margin-top: 30px;   
+    text-align: center;
+}
+
+.btn-gold {
+    background-color: gold;
+    color: #fff;
+    border-color: gold;
+    margin-left:50px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+    border-color: #28a745;
+    margin-left: 50px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    margin-left: 50px;
+}

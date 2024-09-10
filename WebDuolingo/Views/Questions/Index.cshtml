@@ -1,0 +1,96 @@
+﻿@model IEnumerable<WebDuolingo.Models.Question>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    .container {
+        overflow: auto;
+    }
+
+    .content {
+        height: 500px;
+        overflow-y: auto;
+    }
+
+    .footer {
+        position: sticky;
+        bottom: 0;
+    }
+
+    
+</style>
+<div style="overflow: auto;">
+    <h1 style=" text-align:center">Quản lí câu hỏi</h1>
+
+     
+    <p>
+        <a asp-action="Create" style="border-width:1px; border-color:#78C800; color:black">Tạo mới</a>
+    </p>
+
+    <table class="table" style="border-collapse: separate;border-spacing: 20px;">
+        <thead>
+            <tr style="border-spacing: 20px;">
+                <th>
+                    @Html.DisplayNameFor(model => model.NameQues)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdateDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CorrectAnsNavigation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreateByNavigation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdTypeNavigation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LevelNavigation)
+                </th>
+                <th style="text-align:center">Hoạt dộng</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameQues)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CorrectAnsNavigation.IdAns)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateByNavigation.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdTypeNavigation.IdType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LevelNavigation.IdLevel)
+                    </td>
+                    <td style=" display: flex; text-align:center; ">
+                        <a asp-action="Edit" asp-route-id="@item.IdQues" style="border-width:1px; border-color:#78C800; color:black;margin-right: 10px;">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.IdQues" style="border-width:1px; border-color:#78C800; color:black;margin-right: 10px;">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.IdQues" style="border-width:1px; border-color:#78C800; color:black;margin-right: 10px;">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

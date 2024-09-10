@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+.register-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  position: absolute;
+  top: 45%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+}
+
+.content-register {
+  padding: 20px;
+  border-radius: 10px;
+  width: 350px;
+  height: 450px;
+}
+.content-register h2 {
+  font-size: 2.5rem;
+  color: black;
+  margin-bottom: 50px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px; /* Khoảng cách giữa label và input */
+}
+input {
+  width: 100%; /* Đặt chiều rộng của input để nó đầy đủ chiều rộng của form */
+  box-sizing: border-box; /* Đảm bảo chiều rộng và padding tính cả border */
+  border: none;
+  outline: none;
+  background-color: transparent; /* Đặt nền trong suốt để không che phủ hình ảnh nền */
+  padding: 10px;
+  border-bottom: 1px solid #787676; /* Gạch chân dưới màu xám nhạt */
+  margin-bottom: 5px;
+}
+input:hover {
+  border-bottom: 1px solid white; /* Gạch chân dưới màu xanh khi rê chuột vào */
+}
+
+/* Hiệu ứng focus khi ô input được chọn */
+input:focus {
+  border-bottom: 2px solid white; /* Gạch chân dưới màu xanh đậm khi ô input được focus */
+}
+input::placeholder {
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+.button-register button {
+  background-color: white;
+  color: green;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  margin-top: 25px;
+  font-weight: 550;
+  transition: transform 0.3s;
+}
+.button-register button:hover {
+  transform: scale(1.1);
+}
+.login-link a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: 600;
+}
+.login-link a:hover {
+  color: green;
+}
+.login-link {
+  font-size: 1rem;
+}
+@media only screen and (max-width: 900px) {
+  .content {
+    transform: translateX(-50%);
+    margin-top: -250px;
+    width: 100%;
+  }
+  .content-register h2 {
+    font-size: 2.5rem;
+    color: black;
+    margin-bottom: 50px;
+    font-weight: 800;
+    white-space: nowrap;
+    margin-right: -15px;
+  }
+  input {
+    width: 100%; /* Đặt chiều rộng của input để nó đầy đủ chiều rộng của form */
+    box-sizing: border-box; /* Đảm bảo chiều rộng và padding tính cả border */
+    border: none;
+    outline: none;
+    background-color: transparent; /* Đặt nền trong suốt để không che phủ hình ảnh nền */
+    padding: 10px;
+    border-bottom: 1px solid #787676; /* Gạch chân dưới màu xám nhạt */
+    margin-bottom: 5px;
+  }
+  input::placeholder {
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+  }
+
+  .content-register {
+    width: 100%;
+    max-width: 500px; /* Điều chỉnh chiều rộng tối đa của form cho điện thoại */
+    margin: auto; /* Canh giữa form */
+    position: relative; /* Đảm bảo form không bị lệch khi sử dụng margin: auto; */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Canh giữa theo chiều ngang */
+    justify-content: center; /* Canh giữa theo chiều dọc */
+  }
+  .login-link a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    margin-right: -20px;
+    white-space: nowrap;
+  }
+}

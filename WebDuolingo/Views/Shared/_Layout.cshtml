@@ -1,0 +1,200 @@
+﻿
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<!-- Các tệp CSS của Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- Các tệp JavaScript của Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<style>
+    a.navbar-brand {
+        font-weight: 600;
+        background: #78C800;
+        color:white;
+        
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+        padding: 10px 15px; /* Tăng khoảng cách xung quanh liên kết */
+        border: 1px solid transparent; /* Tạo khung viền với độ trong suốt */
+        transition: all 0.3s; /* Hiệu ứng chuyển đổi màu khi hover */
+        display: inline-block; /* Đảm bảo phần border hoạt động đúng cách */
+        border-radius: 15px;
+    }
+        /* Màu khi hover */
+        a:hover {
+            color: #555; /* Màu khi hover */
+            border-color: #555; /* Màu khung viền khi hover */
+        }
+
+        /* Màu khi active (đang được nhấn giữ) */
+        a:active {
+            color: #333; /* Màu khi active */
+            border-color: #333; /* Màu khung viền khi active */
+        }
+
+        /* Màu khi liên kết đã được truy cập */
+        a:visited {
+            color: #888; /* Màu khi liên kết đã được truy cập */
+        }
+
+    /* Hiệu ứng mượt mà khi hover */
+    a {
+        position: relative;
+    }
+
+        a::before {
+            content: "";
+            position: absolute;
+            width: calc(100% + 20px); /* Tăng chiều rộng để tạo khung viền xung quanh */
+            height: calc(100% + 20px); /* Tăng chiều cao để tạo khung viền xung quanh */
+            top: -10px; /* Dịch lên trên để tạo khoảng trắng */
+            left: -10px; /* Dịch sang trái để tạo khoảng trắng */
+            border: 1px solid transparent; /* Tạo khung viền với độ trong suốt */
+            visibility: hidden;
+            transform: scale(0.9); /* Scale nhỏ khung viền ban đầu */
+            transition: all 0.3s ease-in-out 0s;
+        }
+
+        a:hover::before {
+            visibility: visible;
+            transform: scale(1); /* Scale toàn bộ khung viền khi hover */
+        }
+
+        a:hover, a:focus {
+            text-decoration: none;
+        }
+    /* Footer background color and text color */
+    .footer {
+        background-color: #343a40;
+        color: #fff;
+        margin-top:200px;
+        width:100%;
+        position: sticky;
+        bottom: 0;
+    }
+ 
+        /* Footer section titles */
+        .footer h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        /* Footer links */
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+
+            .footer ul li a {
+                color: #fff;
+            }
+
+                .footer ul li a:hover {
+                    color: #ccc;
+                }
+
+    /* Social media links */
+    .social-links a {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background-color: #fff;
+        border-radius: 50%;
+        margin-right: 5px;
+        color: #343a40;
+        text-align: center;
+        line-height: 32px;
+    }
+
+        .social-links a:hover {
+            background-color: #ccc;
+            color: #fff;
+        }
+
+</style>
+<header>       
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color:white">Duolingo</a>
+           
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1" style="font-weight:500;color:black;">
+                    <li class="nav-item" style="font-weight:bolder">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                    </li>
+                    <li class="nav-item" style="font-weight:bolder">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Stories" asp-action="IndexUser">Học qua Truyện</a>
+                    </li>
+                    <li class="nav-item" style="font-weight:bolder">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Learn">Bài học</a>
+                    </li>
+                    <li class="nav-item dropdown" style="font-weight:bolder">
+                        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Làm bài tập</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="border-radius:15px;width:30%;text-align:center"> 
+                            <a href="/Practice/MulticChoice?level=1" style="color:black">Độ khó 1</a>
+                            <a href="/Practice/MulticChoice?level=2" style="color:black">Độ khó 2</a>
+                            <a href="/Practice/MulticChoice?level=3" style="color:black">Độ khó 3</a>
+                        </div>
+                     </li>
+                    <li class="nav-item" style="font-weight:bolder" >
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">Giới Thiệu</a>
+                    </li>
+                </ul>
+            </div>
+ 
+             <partial name="_LoginPartial">
+
+                 
+             </partial>  
+        </div>
+    </nav>
+</header> 
+@* <!-- Header -->
+<header class="main-header">
+    <div class="left-section">
+        <div class="logo">
+                <img src="~/images/logo.png" />
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">Giới thiệu</a></li>
+                <li></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right-section">
+        <div class="user-actions">
+            <a href="i"><button class="login-button">Đăng nhập</button></a>
+        </div>
+    </div>
+</header> *@
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+<footer class="footer  text-light" style="background:#78C800">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" style="font-weight:600;">
+                <p style="font-size:24px;"> Duolingo-English &copy;2023</p>
+            </div>
+        </div>
+    </div>
+</footer>
+ 
+    @await RenderSectionAsync("Scripts", required: false)
+

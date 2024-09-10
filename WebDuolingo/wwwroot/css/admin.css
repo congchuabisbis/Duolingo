@@ -1,0 +1,49 @@
+.container {
+    overflow: auto;
+}
+
+.content {
+    height: 500px;
+    overflow-y: auto;
+}
+
+.footer {
+    position: sticky;
+    bottom: 0;
+}
+
+.container {
+    overflow: auto;
+}
+
+.content {
+    height: 500px;
+    overflow-y: auto;
+}
+
+.footer {
+    position: sticky;
+    bottom: 0;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 5px;
+}
+
+a {
+    border-width: 1px;
+    border-color: #78C800;
+    color: black;
+    margin-right: 10px;
+}
+
+h1 {
+    text-align: center;
+}

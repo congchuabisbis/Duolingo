@@ -1,0 +1,86 @@
+﻿@model WebDuolingo.Models.Question
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .container {
+        overflow: auto;
+    }
+
+    .content {
+        height: 500px;
+        overflow-y: auto;
+    }
+
+    .footer {
+        position: sticky;
+        bottom: 0;
+    }
+</style>
+<h1>Edit</h1>
+
+<h4>Question</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdQues" />
+            <div class="form-group">
+                <label asp-for="NameQues" class="control-label"></label>
+                <input asp-for="NameQues" class="form-control" />
+                <span asp-validation-for="NameQues" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level" class="control-label"></label>
+                <select asp-for="Level" class="form-control" asp-items="ViewBag.Level"></select>
+                <span asp-validation-for="Level" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CorrectAns" class="control-label"></label>
+                <select asp-for="CorrectAns" class="form-control" asp-items="ViewBag.CorrectAns"></select>
+                <span asp-validation-for="CorrectAns" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdType" class="control-label"></label>
+                <select asp-for="IdType" class="form-control" asp-items="ViewBag.IdType"></select>
+                <span asp-validation-for="IdType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateBy" class="control-label"></label>
+                <select asp-for="CreateBy" class="form-control" asp-items="ViewBag.CreateBy"></select>
+                <span asp-validation-for="CreateBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateDate" class="control-label"></label>
+                <input asp-for="CreateDate" class="form-control" />
+                <span asp-validation-for="CreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateDate" class="control-label"></label>
+                <input asp-for="UpdateDate" class="form-control" />
+                <span asp-validation-for="UpdateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

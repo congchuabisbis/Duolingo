@@ -1,0 +1,132 @@
+﻿@model IEnumerable<WebDuolingo.Models.Story>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+<style>
+    .container {
+        overflow: auto;
+    }
+
+    .content {
+        height: 500px;
+        overflow-y: auto;
+    }
+
+    
+    }</style>
+<h1 class="text-center">Quản lí kho truyện</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create" style="color:white;background:#78C800;font-weight:bold;border-radius:15px;border:none">Create New</a>
+</p>
+
+<table class="table table-bordered table-striped">
+
+    <thead style="background:white;color:black;font-weight:bold;">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateByNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="background:white;color:black;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    <div class="content-preview">
+                        <div class="content-preview-text">@Html.DisplayFor(modelItem => item.Content)</div>
+                        <a href="#" class="content-preview-toggle">Show more</a>
+                    </div>
+                </td>
+                <td>
+                    <img src="data:image/png;base64, @item.Image" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateByNavigation.Id)
+                </td>
+                <td style=" display: flex; text-align:center; justify-content: center;background:white ">
+                    <a asp-action="Edit" asp-route-id="@item.IdStr" style="background:#78C800;color:white;margin-right:10px">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.IdStr" style="background:#78C800;color:white;margin-right:10px">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdStr" style="background:#78C800;color:white;margin-right:10px">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<!-- Thêm script JS Bootstrap -->
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    td:nth-child(3) img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .content-preview {
+        position: relative;
+    }
+
+    .content-preview-text {
+        max-height: 50px; /* Adjust as needed */
+        overflow: hidden;
+        margin-bottom: 10px; /* Add some bottom margin */
+    }
+
+    .content-preview-toggle {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: #fff;
+        padding: 5px;
+        text-decoration: none;
+        color: #007bff;
+        cursor: pointer;
+    }
+</style>
+<script>
+    // Giới hạn content trong 200 ký tự
+    document.querySelectorAll('td:nth-child(2)').forEach(td => {
+
+        if (td.textContent.length > 200) {
+
+            // Cắt và thêm dấu ...
+            td.textContent = td.textContent.substring(0, 200) + '...';
+
+        }
+
+    });
+</script>
+
+ 

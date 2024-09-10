@@ -1,0 +1,143 @@
+﻿@model IEnumerable<WebDuolingo.Models.Question>
+
+@{
+    ViewData["Title"] = "MulticChoice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 1;
+}
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .container {
+        overflow: auto;
+    }
+
+    .content {
+        height: 500px;
+        overflow-y: auto;
+    }
+
+   
+    .answers {
+        width: 100%;
+        display: table;
+        border-collapse: collapse;
+        text-align:center
+    }
+
+    .answer-option {
+        display: table-row;
+    }
+
+        .answer-option input[type="radio"],
+        .answer-option label {
+            display: table-cell;
+            padding: 10px;
+        }
+
+    .answer-option-text {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+</style>
+
+<link href="~/css/mutichoice.css" rel="stylesheet" />
+<body>
+    <form method="post" action="/Practice/CheckAnwser">
+        <div class="questions-container">
+            @foreach (var item in Model)
+            {
+                <div class="question d-none">
+                    <div class="question-info">
+                        <div style="width:150px" class="question-number">
+                            <span style="font-size:15px;text-align:center">Question @count:</span>
+                        </div>
+
+                        <div class="question-text">
+                            <i class="fas fa-fish"></i>
+                            <h class="question-text-title">@Html.DisplayFor(modelItem => item.NameQues)</h>
+                        </div>
+                    </div>
+
+                    <div class="answers" style="width:110%;">
+                        @foreach (var ans in item.Answers)
+                        {
+                            <div class="answer-option">
+                                <input type="radio" class="form-check-input" name="@item.IdQues" id="@ans.IdAns" value="@ans.IdAns">
+                                <label class="form-check-label" for="@ans.IdAns">
+                                    <span class="answer-option-text">@ans.NameAns</span>
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                count = count + 1;
+            }
+        </div>
+
+        <div class="navigation-buttons">
+            <button class="btn btn-gold btn_previous" type="button" onclick="previousQuestion()">Previous</button>
+            <button class="btn btn-success btn_submit" type="submit">Submit</button>
+            <button class="btn btn-primary btn_next" type="button" onclick="nextQuestion()">Next</button>
+        </div>
+    </form>
+</body>
+
+
+    <script>
+     let currentQuestion = 0;
+     let totalQuestion = 0;
+     let questions;
+
+     function nextQuestion() {
+        if (currentQuestion > -1 && currentQuestion < questions.length) {
+            currentQuestion++;
+            if (currentQuestion == questions.length)
+                currentQuestion--;
+            questions[currentQuestion].classList.remove("d-none");
+            for (var i = 0; i < questions.length; i++) {
+                if (i != currentQuestion) {
+                    questions[i].classList.add("d-none");
+                }
+            }
+            
+         }
+     }
+
+     function previousQuestion() {
+
+        if (currentQuestion > -1 && currentQuestion < questions.length) {
+            currentQuestion--;
+            if (currentQuestion == -1)
+                currentQuestion++;
+            questions[currentQuestion].classList.remove("d-none");
+            for (var i = 0; i < questions.length; i++) {
+                if (i != currentQuestion) {
+                    questions[i].classList.add("d-none");
+                }
+            }
+            
+        }
+
+        
+     }
+
+     document.addEventListener('DOMContentLoaded', function () {
+         questions = document.getElementsByClassName('question');
+         totalQuestion = questions.length;
+         console.log(totalQuestion);
+         if (questions.length > 0) {
+             questions[currentQuestion].classList.remove('d-none');
+         }
+     });
+</script>

@@ -1,0 +1,92 @@
+﻿@model WebDuolingo.Models.Answer
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    
+ 
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h4 {
+        text-align: center;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+ 
+
+    .control-label {
+        display: block;
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 5px;
+       
+        border-radius: 4px;
+    }
+
+
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    input[type="submit"] {
+        background-color: #78C800;
+        border: none;
+        color: white;
+        padding: 12px 20px;
+        cursor: pointer;
+    }
+</style>
+<div  >
+    <h1 style ="text-align:center">Tạo mới</h1>
+
+    <h4 style="text-align:center">Câu trả lời</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create" style="justify-content:center;margin-bottom:10px" >
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group" >
+                    <label asp-for="NameAns" class="control-label"></label>
+                    <input asp-for="NameAns" class="form-control" />
+                    <span asp-validation-for="NameAns" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdQues" class="control-label"></label>
+                    <select asp-for="IdQues" class="form-control" asp-items="ViewBag.IdQues"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageAns" class="control-label"></label>
+                    <input asp-for="ImageAns" class="form-control" />
+                    <span asp-validation-for="ImageAns" class="text-danger"></span>
+                </div>
+                <div>
+                    <input type="submit"  value="Tạo" class="btn btn-primary" style="margin-top:20px;border-radius:10px" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Quay lại</a>
+    </div>
+</div>
+
+

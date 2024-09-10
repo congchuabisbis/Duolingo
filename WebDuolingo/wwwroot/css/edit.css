@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-size: cover;
+}
+
+.form-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px;
+  margin-top: 18%;
+}
+.box-edit {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container input {
+  width: 90%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  height: 45px;
+  background-color: pink; /* Loại bỏ màu nền */
+  border: 3px dashed rgba(0, 128, 0, 0.301); /* Thêm viền để tạo đường biên */
+  border-radius: 7px;
+  outline: none;
+}
+
+.box-edit img {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+  margin-top: -50px;
+}
+input::placeholder {
+  color: black;
+}
+input:focus {
+  border: none;
+}
+.button-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.back-button button {
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  border: none;
+  margin: 0 10px;
+  border-radius: 5px;
+  margin-right: 100px;
+  width: 120px;
+
+  height: 50px;
+  width: 150px;
+  font-weight: 700;
+}
+.save-button button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  border: none;
+  margin: 0 10px;
+  border-radius: 5px;
+  width: 140px;
+  height: 50px;
+
+  font-weight: 700;
+}

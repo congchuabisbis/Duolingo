@@ -1,0 +1,165 @@
+﻿@model IEnumerable<WebDuolingo.Models.Story>
+
+@{
+    ViewData["Title"] = "IndexUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link hhref="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300" />
+ 
+
+<style>
+            /* Thanh tiến trình */
+        .reading-progress {
+          height: 5px;
+          background: #f1f1f1;
+        }
+
+        .progress-bar {
+        background: #78C800;
+          height: 100%;
+        }
+
+        /* Cải thiện bố cục văn bản */ 
+        .story-content {
+          max-width: 600px;
+          margin: 0 auto;
+        }
+
+        .story-title {
+          font-size: 24px;
+          font-weight: bold;
+        }
+
+        .story-text {
+          font-size: 16px;
+          line-height: 1.6;
+        }
+
+        /* Chế độ tối */
+        body.dark-mode {
+          background: #252525;
+          color: #eee; 
+        }
+
+        /* Đa phương tiện */
+        .story-image {
+          max-width: 100%;
+          margin: 20px 0;
+          border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+                transition: transform 0.3s ease;
+        }
+
+         .story-image:hover {
+                    transform: scale(1.05);
+                }
+
+         .story {
+                transition: transform 0.5s ease;
+            }
+
+                .story.active {
+                    transform: translateX(0);
+                }
+
+                .story.next {
+                    transform: translateX(100%);
+                }
+
+                .story.prev {
+                    transform: translateX(-100%);
+                }
+.story-title {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px; /* Chỉ cần sử dụng nếu bạn muốn tiêu đề nằm giữa theo chiều dọc */
+    }
+        .story-content {
+          font-family: 'Merriweather', serif;
+        }
+ 
+</style>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Learning English Through Stories</h1>
+
+    <div id="storyContainer" class="row">
+
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-12 mb-4 story d-none">
+
+                <!-- Cải thiện bố cục -->
+                <div class="story-content">
+
+                    <h2 class="story-title">@item.Title</h2>
+                    <img src="data:image/png;base64, @item.Image" class="story-image">
+                    <p class="story-text">
+                        @Html.Raw(item.Content)
+                    </p>
+
+                </div>
+            </div>
+
+        }
+    </div>
+
+    <style>
+        .btn-custom {
+            background-color: #ffcc00;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-custom:hover {
+                background-color: #78C800;
+            }
+            .btn-custom.previous {
+                margin-right: 10px;
+            }
+    </style>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <button class="btn btn-custom previous" type="button" onclick="previousStory()">Previous</button>
+            <button class="btn btn-custom next" type="button" onclick="nextStory()">Next</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentStory = 0;
+    let stories;
+
+    function nextStory() {
+        if (currentStory < stories.length - 1) {
+            stories[currentStory].classList.add("d-none"); // Ẩn story hiện tại
+            currentStory++;
+            stories[currentStory].classList.remove("d-none"); // Hiển thị story tiếp theo
+        }
+    }
+
+    function previousStory() {
+        if (currentStory > 0) {
+            stories[currentStory].classList.add("d-none"); // Ẩn story hiện tại
+            currentStory--;
+            stories[currentStory].classList.remove("d-none"); // Hiển thị story trước đó
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        stories = document.querySelectorAll('.story');
+        if (stories.length > 0) {
+            stories[currentStory].classList.remove('d-none');
+        }
+    });
+</script>

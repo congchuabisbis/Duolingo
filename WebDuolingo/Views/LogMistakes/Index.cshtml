@@ -1,0 +1,134 @@
+﻿@model IEnumerable<WebDuolingo.Models.LogMistake>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- Các tệp CSS của Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- Các tệp JavaScript của Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<style>
+
+    .footer {
+        background-color: #343a40;
+        color: #fff;
+        margin-top: 200px;
+        width: 100%;
+        position: sticky;
+        bottom: 0;
+        margin-top:700px;
+    }
+
+    h1 {
+        color: #78C800;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    .header-title {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .back-button {
+        background-color: #78C800;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .question-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .question {
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #78C800;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom:100px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .question-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .question-name {
+        color: #78C800;
+    }
+
+    .question-content {
+        margin-top: 10px;
+    }
+</style>
+
+<div class="container">
+    <div class="header">
+        <h1 class="header-title">Kết quả bài làm</h1>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle back-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Ôn lỗi sai
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/practice/MulticChoice?level=1&tryMistake=true">Level 1</a>
+                <a class="dropdown-item" href="/practice/MulticChoice?level=2&tryMistake=true">Level 2</a>
+                <a class="dropdown-item" href="/practice/MulticChoice?level=3&tryMistake=true">Level 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle back-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Câu hỏi sai theo cấp độ  
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/LogMistakes">Tất cả lỗi sai</a>
+                <a class="dropdown-item" href="/LogMistakes?Level=1">Level 1</a>
+                <a class="dropdown-item" href="/LogMistakes?Level=2">Level 2</a>
+                <a class="dropdown-item" href="/LogMistakes?Level=3">Level 3</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="question-list">
+        @foreach (var item in Model)
+        {
+            <div class="question">
+                <h1 class="question-title">Câu hỏi bị sai: <span class="question-name">@item.IdQuesNavigation.NameQues</span></h1>
+                <div class="question-content">
+                    <h5>Số lần sai: <span>@item.ContQues</span></h5>
+                </div>
+            </div>
+        }
+    </div>
+</div>

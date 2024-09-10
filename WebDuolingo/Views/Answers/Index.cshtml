@@ -1,0 +1,114 @@
+﻿@model IEnumerable<WebDuolingo.Models.Answer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    .container {
+        overflow: auto;
+    }
+
+    .content {
+        height: 500px;
+        overflow-y: auto;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+
+    .container {
+        overflow: auto;
+    }
+
+    .content {
+        height: 500px;
+        overflow-y: auto;
+    }
+
+     
+
+    h1 {
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    thead {
+        background-color: #f2f2f2;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+  
+        a:hover {
+            background-color: #78C800;
+            color: white;
+        }
+</style>
+<div style="overflow: auto">
+    <h1 style="text-align:center;">Quản lí câu trả lời</h1>
+
+    <p>
+        <a asp-action="Create" style="border-width:1px; border-color:#78C800; color:black">Tạo mới</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameAns)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageAns)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdQuesNavigation)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameAns)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImageAns)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdQuesNavigation.IdQues)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdAns">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.IdAns">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdAns">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,570 @@
+﻿@model IEnumerable<WebDuolingo.Models.AspNetUser>
+@{
+    ViewData["Title"] = "Home Page";
+     
+}
+  <style>
+    .main-content {
+  padding: 10px;
+}
+.container-first {
+  width: 1200px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.column-first {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+.letgo-link {
+  text-decoration: none;
+}
+
+.image-2 {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+ 
+.letgo {
+  display: block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  margin-left: 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: pulse 3s infinite;  Thêm hiệu ứng chuyển động tự động 
+}
+.content {
+  padding: 60px;
+  background-color: #fff;
+
+}
+
+.next-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 0;
+}
+
+.box {
+  width: 270px;
+  text-align: center;
+  margin: 10px;
+  transition: box-shadow 0.3s ease;
+  border: 1px solid rgba(78, 75, 75, 0.222);
+}
+
+.box:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.box-image img {
+  width: 100%;
+  height: auto;
+  margin-bottom: -60px;
+}
+
+.box-content {
+  padding: 10px;
+  margin-top: -30px;
+}
+.box-content h5 {
+  margin-top: -10px;
+  color: grey;
+  font-weight: 200;
+}
+.box-content h4 {
+  margin-top: -10px;
+  font-weight: 500;
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signup-button {
+  background-color: #4fff55;
+  color: white;
+  border: none;
+  margin-left: 500px;
+}
+
+.section-4 {
+  margin: 100px 0;
+}
+.container-book {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-column-book {
+  flex: 1;
+}
+
+.right-column-book {
+  flex: 0.9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: left;
+  margin-top: -100px;
+}
+.right-column-book p {
+  padding: 10px;
+  line-height: 40px;
+  font-weight: 700;
+}
+.image {
+  width: 60%;
+  height: auto;
+  margin-left: 70px;
+  margin-top: -70px;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
+button {
+  margin-right: 5px;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 5px;
+  background-color: pink;
+  border: none;
+}
+#a:hover {
+  background-color: #4caf50;
+  border: none;
+  transform: translateY(-10px);
+  border-radius: 5px;
+}
+#an:hover {
+  background-color: rgb(231, 91, 91);
+  border: none;
+  transform: translateY(-10px);
+  border-radius: 5px;
+}
+
+.horizontal-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -20px;
+  padding: 40px;
+  margin-bottom: 15px;
+}
+
+.horizontal-box {
+  flex: 1;
+  transition: box-shadow 0.3s ease;
+  padding: 10px;
+  margin-right: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1px dashed black;
+}
+.horizontal-box:hover {
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.1);
+}
+.title-question {
+  margin-left: 55px;
+  font-size: 1.5rem;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+.section-video {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+.column-video {
+  flex: 1;
+  margin: 10px;
+}
+
+video {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+.title-video {
+  margin-left: 55px;
+  font-size: 1.5rem;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+.video-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;  Chiều cao tự động 
+  grid-gap: 20px;
+  padding: 20px;
+  height: 230px;
+}
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  text-align: center;
+  align-items: center;
+}
+
+.text {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+.book-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.book-container {
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.book-container img {
+  width: 20%;
+  height: 40%;
+  padding: 10px;
+  animation: pulse 5s infinite;
+}
+
+.book-container h3 {
+  margin: 10px 0;
+}
+ 
+.book-container p {
+  padding: 15px;
+  font-size: 0.9rem;
+  text-align: justify;
+}
+.title-listbook {
+  margin-left: 55px;
+  font-size: 1.5rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.container-level {
+  display: flex;
+  height: 70vh;
+  margin-top: 30px;
+  padding: 30px;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.column-level {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  height: 450px;
+  justify-content: center;  Căn giữa theo chiều dọc 
+  align-items: center;  Căn giữa theo chiều ngang 
+}
+
+.column-level img {
+  height: auto;
+  text-align: center;
+}
+.partial-width {
+  width: 90%;
+  animation: swing 3s infinite;
+}
+.full-width {
+  width: 50%;
+}
+.title-level {
+  font-size: 1.5em;
+  font-weight: bold;
+  justify-content: center;
+  color: #4caf50;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #030303,
+    1px 1px 0 #000;
+}
+.text-level {
+  font-size: 1em;
+  margin-top: 10px;
+  text-align: justify;
+  justify-content: center;
+  line-height: 30px;
+  padding: 20px;
+}
+ 
+.image-text-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 100px 2px 100px;
+  box-sizing: border-box;
+}
+
+.left-image {
+  width: 22%;
+  height: auto;
+  margin-right: 60px;
+}
+
+.right-text {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.right-text h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.right-text p {
+  font-size: 1em;
+  text-align: justify;
+  font-weight: 600;
+  </style>
+    
+<body>
+
+    <!-- Phần giữa -->
+    <section class="main-content">
+
+        <section class="first-section">
+            <div class="container-first">
+                <div class="column-first">
+             <img src="~/images/test.gif" />
+        
+                    <a href="/Practice/MulticChoice?level=1" style="color:white; background-color:#78C800; border-radius:10px; margin-left:auto; margin-right:50px; font-weight:bold">
+                      LET GO
+                    </a>
+                </div>
+                <div class="column-first">
+                    <div class="content">
+                        <img src="~/images/3.png" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="image-text-section">
+            <img src="~/images/gthieu.gif" />
+            <div class="right-text">
+                <h2>JOY ENGLISH là gì ?</h2>
+                <p>Mỗi người đều có phương pháp học riêng. Lần đầu tiên trong lịch sử giáo dục, chúng tôi có thể phân tích từ cách thức học tập của hàng triệu người để tạo ra một hệ thống giáo dục hiệu quả, thích hợp nhất dành riêng cho từng học viên</p>
+                <p>Học ngoại ngữ trực tuyến thường nhàm chán, nên chúng tôi tạo ra một ứng dụng thú vị là JOY ENGLISH để giúp mọi người có động lực vừa chơi vừa học thêm kỹ năng mới mỗi ngày</p>
+                <p>Chúng tôi tạo ra JOY ENGLISH để tất cả mọi người đều có thể được học ngoại ngữ miễn phí - hoàn toàn không có chi phí ẩn hoặc nội dung phải trả tiền</p>
+            </div>
+        </div>
+
+        <section class="next-section">
+            <div class="box">
+                <div class="box-image">
+                    <img src="~/images/dog.png" />
+                </div>
+                <div class="box-content">
+                    <h3>Dog</h3>
+                    <h5>dôɡ</h5>
+                    <h4>Con chó</h4>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-image">
+                <img src="~/images/tea.png" />
+                </div>
+                <div class="box-content">
+                    <h3>Tea</h3>
+                    <h5>tē</h5>
+                    <h4>Trà</h4>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-image">
+                <img src="~/images/linh.png" />
+                </div>
+                <div class="box-content">
+                    <h3>Fireman</h3>
+                    <h5>ˈfī(ə)rmən</h5>
+                    <h4>Lính cứu hỏa</h4>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-image">
+                    <img src="~/images/it.png" />
+                </div>
+                <div class="box-content">
+                    <h3>Programmer</h3>
+                    <h5>ˈprōˌɡramər</h5>
+                    <h4>Lập trình viên</h4>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-4">
+            <div class="container-book">
+                <div class="left-column-book">
+                    <!-- Hình ảnh của bạn -->
+                    <img src="~/images/book.gif" />
+                </div>
+                <div class="right-column-book">
+                    <p>Drenched in a rich tapestry of history and culture, the ____________ stands as a testament to the enduring spirit of human civilization, seamlessly interweaving time-honored traditions with the forefront of technological advancements.</p>
+                    <div class="buttons">
+                        <button id="a">City</button>
+                        <button id="an">Landscape</button>
+                    </div>
+                    <p>The advancement of modern technology has revolutionized the way we communicate, making it easier for people to stay connected across_______distances.</p>
+                    <div class="buttons">
+                        <button id="an">History</button>
+                        <button id="a">Geographical </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-question">
+            <div class="title-question">Các dạng bài tập</div>
+        </section>
+        <section class="horizontal-section">
+            <div class="horizontal-box">
+                Demonstrating his culinary skills, Mark ____________ a delicious three-course meal for the dinner party.
+                <p>A. Prepares</p>
+                <p>B. Prepared</p>
+            </div>
+            <div class="horizontal-box">
+                Critics praised the artist for the ____________ and originality displayed in his latest masterpiece
+                <p>A. Creativity</p>
+                <p>B. Diligence</p>
+            </div>
+            <div class="horizontal-box">
+                Although his both legs were broken in the crash, he managed to get out of the car before it exploded
+                <p>Rewrite: Despite his ____</p>
+            </div>
+        </section>
+
+
+
+
+        <div class="container-level">
+            <div class="column-level">
+                <div class="title-level">MỨC ĐỘ DỄ</div>
+                <div class="text-level">Đến với JOY ENGLISH ở mức độ dễ bạn sẽ được học những bài cơ bản đầu tiên. Bên cạnh đó còn có bài tập để học viên có thể ôn tập, luyện nhớ để củng cố kiến thức</div>
+                <img src="~/images/level1.png" />
+            </div>
+
+            <div class="column-level">
+               <img src="~/images/level.png" />
+            </div>
+
+            <div class="column-level">
+                <div class="title-level">MỨC ĐỘ KHÓ</div>
+                <div class="text-level">Ngoài mức độ dễ, JOY ENGLISH còn có thêm mức độ khó để học viên có thể học và làm các bài học, bài tập nâng cao, rèn luyện trình độ</div>
+              <img src="~/images/level2.png" />
+            </div>
+        </div>
+        
+
+
+
+        <section class="section-3">
+            <div class="title-listbook">Sách giáo khoa phổ biến</div>
+        </section>
+        <section class="book-section">
+            <div class="book-container">
+                <img src="~/images/book1.png" />
+                <h3>Joyful English</h3>
+                <p>The book takes everyday communication topics as lessons and presents them through vivid comics</p>
+            </div>
+
+            <div class="book-container">
+                <img src="~/images/book2.jpg" />
+                <h3>Practical English Usage</h3>
+                <p>Suitable for beginners learning English and serves as a good source of basic review of English grammar</p>
+            </div>
+
+            <div class="book-container">
+                <img src="~/images/book3.jpg" />
+                <h3>Essential English Grammar</h3>
+                <p>The book clearly analyzes each type of sentence, word, and phrase used with a detailed and basic structure</p>
+            </div>
+
+            <div class="book-container">
+                <img src="~/images/book4.jpg" />
+                <h3>English Grammar for Dummies</h3>
+                <p>
+                    The book focuses on conveying to learners how to use grammar in real communication situations
+                </p>
+            </div>
+        </section>
+
+        <section class="section-5">
+            <div class="title-video">Video</div>
+        </section>
+        <section class="video-row">
+            <div class="video-container">
+                    <video controls="controls">
+                        <source src="~/images/video1.mp4" type="video/mp4" />
+                    </video>
+                <div class="text">
+                    <p>How to manage your emotions</p>
+                </div>
+            </div>
+            <div class="video-container">
+
+                <video controls="controls">
+                    <source src="~/images/video3.mp4" type="video/mp4" />
+                </video>
+                <div class="text">
+                    <p>English Speaking for Real Life</p>
+                </div>
+            </div>
+            <div class="video-container">
+                    <video controls="controls">
+                        <source src="~/images/video3.mp4" type="video/mp4" />
+                    </video>
+                    
+                <div class="text">
+                    <p>At the Hotel Conversation</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <video controls="controls">
+                    <source src="~/images/video4.mp4" type="video/mp4" />
+                </video>
+                <div class="text">
+                    <p>How to Make Learning as Addictive as Social Media</p>
+                </div>
+            </div>
+        </section>
+
+    </section>
+</body>
+ 

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebDuolingo.Models.Level>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+</style>
+<h1 style="text-align:center">Quản lí cấp độ</h1>
+
+<p>
+    <a asp-action="Create" style="border-width:1px; border-color:#78C800; color:black">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoteLevel)
+            </th>
+            <th style="text-align:center">Hoạt Động</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteLevel)
+            </td>
+               
+            <td style="text-align:center">
+                    <a asp-action="Edit" asp-route-id="@item.IdLevel" style="border-width:3px; border-color:#78C800; color:black">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdLevel" style="border-width:3px; border-color:#78C800; color:black">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdLevel" style="border-width:3px; border-color:#78C800; color:black">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

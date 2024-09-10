@@ -1,0 +1,65 @@
+﻿@model WebDuolingo.Models.Question
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/delete.css" rel="stylesheet" />
+<h1>Xóa Câu Hỏi</h1>
+
+<h3>Bạn có chắc chắn muốn xóa cái này không?</h3>
+<div>
+    <h4>Câu hỏi</h4>
+    <hr />
+    <dl class="row custom-table">
+        <dt  class="col-sm-2 custom-label custom-label">
+            @Html.DisplayNameFor(model => model.NameQues)
+        </dt>
+        <dd class="col-sm-10 custom-value">
+            @Html.DisplayFor(model => model.NameQues)
+        </dd>
+        <dt class="col-sm-2 custom-label">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class="col-sm-10 custom-value">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+        <dt class="col-sm-2 custom-label">
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+        <dd class="col-sm-10 custom-value">
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+        <dt class="col-sm-2 custom-label">
+            @Html.DisplayNameFor(model => model.CorrectAnsNavigation)
+        </dt>
+        <dd class="col-sm-10 custom-value">
+            @Html.DisplayFor(model => model.CorrectAnsNavigation.IdAns)
+        </dd>
+        <dt class="col-sm-2 custom-label">
+            @Html.DisplayNameFor(model => model.CreateByNavigation)
+        </dt>
+        <dd class="col-sm-10 custom-value">
+            @Html.DisplayFor(model => model.CreateByNavigation.Id)
+        </dd>
+        <dt class="col-sm-2 custom-label">
+            @Html.DisplayNameFor(model => model.IdTypeNavigation)
+        </dt>
+        <dd class="col-sm-10 custom-value">
+            @Html.DisplayFor(model => model.IdTypeNavigation.IdType)
+        </dd>
+        <dt class="col-sm-2 custom-label">
+            @Html.DisplayNameFor(model => model.LevelNavigation)
+        </dt>
+        <dd class="col-sm-10 custom-value">
+            @Html.DisplayFor(model => model.LevelNavigation.IdLevel)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdQues" />
+        <input type="submit" value="Delete" style="width: 80px; border-radius:15px;border:none;" />
+        <a asp-action="Index" style="margin-top:40px;border-width:2px;">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,61 @@
+﻿@model WebDuolingo.Models.Level
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .container {
+        overflow: auto;
+    }
+
+    .content {
+        height: 500px;
+        overflow-y: auto;
+    }
+
+    .footer {
+        position: sticky;
+        bottom: 0;
+    }
+</style>
+<h1 style ="text-align:center">Tạo mới</h1>
+
+<h4 style="text-align:center"s>Cấp độ</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4" style="margin-left:auto;margin-right:auto">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdLevel" class="control-label"></label>
+                <input asp-for="IdLevel" class="form-control" />
+                <span asp-validation-for="IdLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameLevel" class="control-label"></label>
+                <input asp-for="NameLevel" class="form-control" />
+                <span asp-validation-for="NameLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoteLevel" class="control-label"></label>
+                <input asp-for="NoteLevel" class="form-control" />
+                <span asp-validation-for="NoteLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group" >
+                <input style="border-width:3px; border-color:#78C800; color:white;background:#78C800;margin-top:30px;font-weight:bold" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" style="color:white;background:#78C800;margin-top:30px;">Back to List</a>
+</div>
+

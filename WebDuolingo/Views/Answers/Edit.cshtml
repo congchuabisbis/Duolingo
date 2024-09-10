@@ -1,0 +1,42 @@
+﻿@model WebDuolingo.Models.Answer
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sửa</h1>
+
+<h4>Câu trả lời</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdAns" />
+            <div class="form-group">
+                <label asp-for="NameAns" class="control-label"></label>
+                <input asp-for="NameAns" class="form-control" />
+                <span asp-validation-for="NameAns" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdQues" class="control-label"></label>
+                <select asp-for="IdQues" class="form-control" asp-items="ViewBag.IdQues"></select>
+                <span asp-validation-for="IdQues" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageAns" class="control-label"></label>
+                <input asp-for="ImageAns" class="form-control" />
+                <span asp-validation-for="ImageAns" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sửa" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
